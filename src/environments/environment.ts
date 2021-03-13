@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiKey :"hello123"
+  apiKey :"hello123",
+  baseUrl : "http://localhost:3000/api/"
 
 };
 

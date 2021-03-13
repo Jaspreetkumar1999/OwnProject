@@ -1,9 +1,56 @@
+import { Observable } from 'rxjs';
+import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
+  baseUrl : environment.baseUrl
 
-  constructor() { }
+  constructor(
+    private http : HttpClient
+  ) { }
+  callAPI(method: string, apiData, APIEndPoint): Observable<any> {
+    if (method.toLowerCase() == "post") {
+      return Observable.create(observer => {
+        this.http
+          .post(this.baseUrl + APIEndPoint, apiData)
+          .subscribe((data: any) => {
+            observer.next(data);
+            observer.complete();
+          });
+      });
+    } else if (method.toLowerCase() == "get") {
+      return Observable.create(observer => {
+        this.http
+          .get(this.baseUrl + APIEndPoint + "?" + apiData)
+          .subscribe((data: any) => {
+            observer.next(data);
+            observer.complete();
+          });
+      });
+    } else if (method.toLowerCase() == "put") {
+      return Observable.create(observer => {
+        this.http
+          .put(this.baseUrl + APIEndPoint, apiData)
+          .subscribe((data: any) => {
+            observer.next(data);
+            observer.complete();
+          });
+      });
+    } else if (method.toLowerCase() == "delete") {
+      return Observable.create(observer => {
+        this.http
+          .delete(this.baseUrl + APIEndPoint, apiData)
+          .subscribe((data: any) => {
+            observer.next(data);
+
+            observer.complete();
+          });
+      });
+    }
+  }
+
 }
