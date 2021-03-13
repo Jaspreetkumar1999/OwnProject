@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormArray , FormControl, FormGroup, FormGroupName, Validators} from "@angular/forms"
+import {FormBuilder , FormControl, FormGroup, FormGroupName, Validators} from "@angular/forms"
 
 @Component({
   selector: 'app-login-signup',
