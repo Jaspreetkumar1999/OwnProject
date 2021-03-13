@@ -7,6 +7,7 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   imports: [
     CommonModule,
     UserRoutingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }
