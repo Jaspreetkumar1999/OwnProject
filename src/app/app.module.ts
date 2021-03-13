@@ -1,3 +1,9 @@
+import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { HeaderInterceptor } from './interceptor/header.interceptor';
+import { UserServiceService } from './_services/user-service.service';
+import { SharedServiceService } from './_services/shared-service.service';
+import { ApiServiceService } from './_services/api-service.service';
+import { AuthService } from './_services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,6 +12,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {Common_Module} from 'src/app/common/common.module'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +26,23 @@ import {Common_Module} from 'src/app/common/common.module'
     BrowserAnimationsModule,
     Common_Module,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    ApiServiceService,
+    SharedServiceService,
+    UserServiceService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : HeaderInterceptor,
+      multi : true
+    },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : ErrorInterceptor,
+      multi : true
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
