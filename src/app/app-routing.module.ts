@@ -7,10 +7,10 @@ const routes: Routes = [
     path : '',
     component: HomeComponent
   },
-  // {
-  //   path : "user",
-  //   loadChildren : () => import('./core/user/user.module').then(f => f.UserModule)
-  // }
+  {
+    path : "user",
+    loadChildren : () => import('./core/user/user.module').then(f => f.UserModule)
+  }
 ];
 
 @NgModule({

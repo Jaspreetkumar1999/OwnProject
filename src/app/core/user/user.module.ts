@@ -6,12 +6,15 @@ import { UserComponent } from './user/user.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [UserComponent, LoginSignupComponent, ProfileComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    MatFormFieldModule
   ]
 })
 export class UserModule { }
