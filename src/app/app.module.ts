@@ -3,7 +3,7 @@ import { HeaderInterceptor } from './interceptor/header.interceptor';
 import { UserServiceService } from './_services/user-service.service';
 import { SharedServiceService } from './_services/shared-service.service';
 import { ApiServiceService } from './_services/api-service.service';
-import { AuthService } from './_services/auth.service';
+import { AuthService } from './core/user/services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
