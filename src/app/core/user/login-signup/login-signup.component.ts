@@ -13,7 +13,10 @@ export class LoginSignupComponent implements OnInit {
     private formBuilder : FormBuilder,
     // private apiServiceService:ApiServiceService
   ) {
-    this.loginForm = formBuilder.group({
+    this.form()
+  }
+  form(){
+    this.loginForm = this.formBuilder.group({
       email: new FormControl(null,{validators:[Validators.required,Validators.email]}),
       password: new FormControl(null,{validators:[Validators.required]}),
     })
