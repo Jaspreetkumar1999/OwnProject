@@ -1,4 +1,4 @@
-import { AuthService } from './auth.service';
+import { AuthService } from '../core/user/services/auth.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
    const expectedRole = route.data.expectedRole;
    const token = localStorage.getItem('token');
-   const decodedToken = decode(token);
+   const decodedToken = decode(token!);
 
    if(!this.authService.isAuthenticated() || decodedToken.role !== expectedRole) {
      this.router.navigate(['/login']);
