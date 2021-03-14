@@ -44,7 +44,7 @@ export class AuthService {
      console.log("Data =>", data)
      if(data.success === true){
         data.data = data.data;
-       this.saveToken( JSON.stringify(data.token));
+       this.saveToken( JSON.stringify(data.data.authToken));
        this.saveUser( JSON.stringify(data.data))
        this.currentUserSubject.next(data);
      }
