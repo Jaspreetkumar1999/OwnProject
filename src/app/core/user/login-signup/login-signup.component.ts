@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/core/user/services/auth.service';
   styleUrls: ['./login-signup.component.scss']
 })
 export class LoginSignupComponent implements OnInit {
+  title : string = "login"
 
   loginForm:any
   constructor(
@@ -27,11 +28,20 @@ export class LoginSignupComponent implements OnInit {
   }
   
   logindata(){
-    console.log(this.loginForm.value);
-      console.log("check =>", this.loginForm.controls);
-      
+    // console.log(this.loginForm.value);
+    //   console.log("check =>", this.loginForm.controls);
+      if(this.loginForm.invalid){
+        return
+      }
      this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
     // this.authService.login()
+  }
+
+  showLogin(){
+    this.title = 'login'
+  }
+  showSignup(){
+    this.title = 'signup'
   }
 
  
