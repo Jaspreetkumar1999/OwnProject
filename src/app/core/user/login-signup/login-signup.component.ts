@@ -28,6 +28,9 @@ export class LoginSignupComponent implements OnInit {
   
   logindata(){
     console.log(this.loginForm.value);
+      console.log("check =>", this.loginForm.controls);
+      
+     this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value);
     // this.authService.login()
   }
 

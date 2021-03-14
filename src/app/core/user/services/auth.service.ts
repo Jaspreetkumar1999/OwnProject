@@ -2,17 +2,20 @@ import { User } from '../../../models/user';
 import { ApiServiceService } from '../../../_services/api-service.service';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+// import { JwtHelperService } from '@auth0/angular-jwt/src/jwthelper.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  token : string = "";
+  public token : string = "";
+   jwtService = new JwtHelperService ();
   public currentUserSubject : BehaviorSubject<User>;
   public currentUser : Observable<User>;
 
-  constructor( public jwtSerive : JwtHelperService,
+  constructor( 
     private apiSerive : ApiServiceService ) { 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')!));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -22,7 +25,7 @@ export class AuthService {
     const token = localStorage.getItem('token');
     if(!token ) return false;
 
-     if(!this.jwtSerive.isTokenExpired(this.token)){
+     if(!this.jwtService.isTokenExpired(this.token)){
        this.token = token;
        return true;
      }else{
@@ -38,6 +41,7 @@ export class AuthService {
   public login(email :string , password : string){
    return this.apiSerive.callAPI("post", {email :email , password : password } , "admin/signin")
    .subscribe( (data :any) =>{
+     console.log("Data =>", data)
      if(data.success === true){
         data.data = data.data;
        this.saveToken( JSON.stringify(data.token));
@@ -65,6 +69,7 @@ export class AuthService {
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
 }
+
 
 }
 
