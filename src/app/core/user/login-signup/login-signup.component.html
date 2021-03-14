@@ -1,26 +1,33 @@
 <!-- Login Page -->
 <div class="wrapper fadeInDown">
-  <div id="formContent">
-      <!-- Tabs Titles -->
-      <a href=""><h2 class="active">Login</h2></a>
-      <a [routerLink]="['../signup']"><h2 class="inactive underlineHover">Sign Up </h2></a>
-      
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <a href="">
+            <h2 class="active">Login</h2>
+        </a>
+        <a [routerLink]="['../signup']">
+            <h2 class="inactive underlineHover">Sign Up </h2>
+        </a>
 
-      <!-- Icon -->
-      <!-- <div class="fadeIn first">
+
+        <!-- Icon -->
+        <!-- <div class="fadeIn first">
           <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
       </div> -->
 
-      <!-- Login Form -->
-      <form [formGroup]="loginForm" (ngSubmit)="logindata()"> 
-          <input formControlName="email" type="text" class="fadeIn second" name="login" placeholder="Enter your email">  <!-- formControlName="email" -->
-          <input formControlName="password" type="password" id="password" class="fadeIn third" name="login" placeholder="Enter your password"> <!-- formControlName="password" -->
-          <input type="submit" class="fadeIn fourth" value="Log In">
-      </form>
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="logindata()">
+            <input formControlName="email" type="text" class="fadeIn second" name="login" placeholder="Enter your email"> <!-- formControlName="email" -->
+            <input formControlName="password" type="password" id="password" class="fadeIn third" name="login" placeholder="Enter your password"> <!-- formControlName="password" -->
+            <!-- <div class="alert alert-danger" *ngIf="loginForm.controls['password'].invalid  && loginForm.controls['password'].touched" role="alert">
+                <span *ngIf="loginForm.controls['password'].invalid">Place enter password</span>
+            </div> -->
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
 
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?</a>
-      </div>
-  </div>
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+    </div>
 </div>
