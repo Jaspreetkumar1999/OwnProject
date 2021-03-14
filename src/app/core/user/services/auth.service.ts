@@ -39,10 +39,10 @@ export class AuthService {
    return this.apiSerive.callAPI("post", {email :email , password : password } , "admin/signin")
    .subscribe( (data :any) =>{
      if(data.success === true){
-       data.data = data.data;
-      this.saveToken( JSON.stringify(data.token));
-      this.saveUser( JSON.stringify(data.data))
-      this.currentUserSubject.next(data);
+        data.data = data.data;
+       this.saveToken( JSON.stringify(data.token));
+       this.saveUser( JSON.stringify(data.data))
+       this.currentUserSubject.next(data);
      }
      return data;
 

@@ -15,6 +15,9 @@ export class LoginSignupComponent implements OnInit {
   ) {
     this.form()
   }
+  ngOnInit(): void {
+  }
+
   form(){
     this.loginForm = this.formBuilder.group({
       email: new FormControl(null,{validators:[Validators.required,Validators.email]}),
@@ -28,7 +31,5 @@ export class LoginSignupComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
-  }
-
+ 
 }
