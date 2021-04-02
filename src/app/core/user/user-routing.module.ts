@@ -6,7 +6,8 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
 const routes: Routes = [
   {
     path :"",
-    component : UserComponent
+    redirectTo:"login"
+    // component : UserComponent
   },
   {
     path :"login",
