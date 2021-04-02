@@ -9,7 +9,7 @@ import {SweetAlertService} from 'src/app/_services/sweet-alert.service'
 })
 export class LoginSignupComponent implements OnInit {
 
-  loginForm:any
+  authform:any
   constructor(
     private formBuilder : FormBuilder,
     public authService: AuthService,
@@ -21,14 +21,14 @@ export class LoginSignupComponent implements OnInit {
   }
 
   form(){
-    this.loginForm = this.formBuilder.group({
+    this.authform = this.formBuilder.group({
       email: new FormControl(null,{validators:[Validators.required,Validators.email]}),
       password: new FormControl(null,{validators:[Validators.required]}),
     })
   }
   
-  async logindata(){
-    const data:any = await this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
+  async authsubmit(){
+    const data:any = await this.authService.login(this.authform.controls.email.value, this.authform.controls.password.value)
     if(data.success){this.alert.apiResponseAlert('Login Successfully','success')
     }else{ this.alert.apiResponseAlert(data.error,'error')}
   }

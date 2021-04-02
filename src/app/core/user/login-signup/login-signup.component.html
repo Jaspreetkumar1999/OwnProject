@@ -1,27 +1,27 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <button style="background: none;border: none;">
-            <h2 class="active">Login</h2>
+        <button style="background: none;border: none;" [routerLink]="['/user/login']">
+            <h2 class="inactive underlineHover">Login</h2>  <!-- active -->
         </button>
-        <button style="background: none;border: none;">
+        <a style="background: none;border: none;" [routerLink]="['/user/signup']">
             <h2 class="inactive underlineHover">Sign Up </h2>
-        </button>
+        </a>
         <!-- Icon -->
         <!-- <div class="fadeIn first">
           <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
       </div> -->
 
         <!-- Login Form -->
-        <form [formGroup]="loginForm" (ngSubmit)="logindata()">
+        <form [formGroup]="authform" (ngSubmit)="authsubmit()">
             <input formControlName="email" type="text" class="fadeIn second" placeholder="Enter your email"> <!-- formControlName="email" -->
-            <div class="alert alert-danger" *ngIf="loginForm.controls['email'].invalid  && loginForm.controls['email'].touched" role="alert">
-                <span *ngIf="loginForm.controls['email'].invalid">Place Enter Valid Email</span>
+            <div class="alert alert-danger" *ngIf="authform.controls['email'].invalid  && authform.controls['email'].touched" role="alert">
+                <span *ngIf="authform.controls['email'].invalid">Place Enter Valid Email</span>
             </div>
             <input formControlName="password" type="password" id="password" class="fadeIn third" name="login" placeholder="Enter your password"> <!-- formControlName="password" -->
-            <div class="alert alert-danger" *ngIf="loginForm.controls['password'].invalid  && loginForm.controls['password'].touched" role="alert">
-                <span *ngIf="loginForm.controls['password'].invalid">Place Enter Password</span>
+            <div class="alert alert-danger" *ngIf="authform.controls['password'].invalid  && authform.controls['password'].touched" role="alert">
+                <span *ngIf="authform.controls['password'].invalid">Place Enter Password</span>
             </div>
-            <input type="submit" class="fadeIn fourth" [disabled]='!loginForm.valid' value="Log In">
+            <input type="submit" class="fadeIn fourth" [disabled]='!authform.valid' value="Log In">
         </form>
         <!-- Remind Passowrd -->
         <div id="formFooter">
