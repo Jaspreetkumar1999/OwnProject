@@ -56,6 +56,24 @@ export class AuthService {
       }
     })
   }
+  public verify(code: string) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        return this.apiSerive.callAPI("get", { }, `admin/verifyUser?code=${code}`)
+          .subscribe((data: any) => {
+            if (data.success === true) {
+              data.data = data.data;
+              this.saveToken(JSON.stringify(data.token));
+              this.saveUser(JSON.stringify(data.data))
+              this.currentUserSubject.next(data);
+            }
+            resolve(data);
+          })
+      } catch (err) {
+        reject(err)
+      }
+    })
+  }
   public forgetPassword(email: string, password: string) {
     return new Promise(async (resolve, reject) => {
       try {

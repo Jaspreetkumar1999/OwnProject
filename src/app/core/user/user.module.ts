@@ -7,11 +7,12 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { SetPasswordComponent } from './set-password/set-password.component'
 
 
 @NgModule({
-  declarations: [UserComponent, LoginSignupComponent, ProfileComponent],
+  declarations: [UserComponent, LoginSignupComponent, ProfileComponent, SetPasswordComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
