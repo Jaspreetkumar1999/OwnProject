@@ -1,67 +1,27 @@
-<div class="signup-container">
-    <div class="left-container">
-        <h1>PUPASSURE</h1>
-        <img class="puppy" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png" alt="">
+<form action="action_page.php" method="post">
+    <div class="imgcontainer">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.icWTGsqnH4mJbGqB_s3XUgHaFj%26pid%3DApi&f=1" alt="Avatar" class="avatar">
     </div>
-    <div class="right-container">
-        <header>
-            <h1 class="">Yay, puppies! Ensure your pup gets the best care!</h1>
-        </header>
+  
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <div class="d-flex justify-content-between">
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <button class="cancelbtn btn">Update</button>
+        </div>
+        <label for="uname"><b>Password</b></label>
+        <div class="d-flex justify-content-between">
+            <input type="password" placeholder="Enter password" name="uname" required>
+            <button class="cancelbtn btn">Update</button>
+        </div>
+        <button type="submit" class="btn">Update Profile</button>
+        <!-- <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label> -->
     </div>
-</div>
-<!-- .signup-container
-  .left-container
-    %h1 
-      %i.fas.fa-paw
-      PUPASSURE
-    .puppy
-      %img{ :src => "https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png"}
-  .right-container
-    %header
-      %h1 Yay, puppies! Ensure your pup gets the best care! 
-      .set
-        .pets-name
-          %label{ :for => "pets-name"} Name
-          %input#pets-name{ :type => "text", :placeholder => "Pet's name" }
-        .pets-photo
-          %button#pets-upload{}
-            %i.fas.fa-camera-retro
-          %label{ :for => "pets-upload"} Upload a photo
-      .set
-        .pets-breed
-          %label{ :for => "pets-breed"} Breed
-          %input#pets-breed{ :type => "text", :placeholder => "Pet's breed" }
-        .pets-birthday
-          %label{ :for => "pets-birthday"} Birthday
-          %input#pets-birthday{ :type => "text", :placeholder => "MM/DD/YYYY" }
-      .set
-        .pets-gender
-          %label{:for => "pet-gender-female"} Gender
-          .radio-container
-            %input#pet-gender-female{ :name => "pet-gender", :type => "radio", :value => "female", :checked => "" }
-            %label{ :for => "pet-gender-female"} Female
-            %input#pet-gender-male{ :name => "pet-gender", :type => "radio", :value => "male" }
-            %label{ :for => "pet-gender-male"} Male
-        .pets-spayed-neutered
-          %label{:for => "pet-spayed"} Spayed or Neutered
-          .radio-container
-            %input#pet-spayed{ :name => "spayed-neutered", :type => "radio", :value => "spayed", :checked => "" }
-            %label{ :for => "pet-spayed"} Spayed
-            %input#pet-neutered{ :name => "spayed-neutered", :type => "radio", :value => "neutered" }
-            %label{ :for => "pet-neutered"} Neutered
-      .pets-weight
-        %label{:for => "pet-weight-0-25"} Weight
-        .radio-container
-          %input#pet-weight-0-25{ :name => "pet-weight", :type => "radio", :value => "0-25", :checked => "" }
-          %label{ :for => "pet-weight-0-25"} 0-25 lbs
-          %input#pet-weight-25-50{ :name => "pet-weight", :type => "radio", :value => "25-50" }
-          %label{ :for => "pet-weight-25-50"} 25-50 lbs
-          %input#pet-weight-50-100{ :name => "pet-weight", :type => "radio", :value => "50-100" }
-          %label{ :for => "pet-weight-50-100"} 50-100 lbs
-          %input#pet-weight-100-plus{ :name => "pet-weight", :type => "radio", :value => "100+" }
-          %label{ :for => "pet-weight-100-plus"} 100+ lbs
-    %footer
-      .set
-        %button#back Back
-        %button#next Next
-      -->
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn btn">Home</button>
+      <span class="psw">change <a href="#">password?</a></span>
+    </div>
+  </form>
