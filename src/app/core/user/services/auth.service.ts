@@ -59,8 +59,10 @@ export class AuthService {
   public verify(code: string) {
     return new Promise(async (resolve, reject) => {
       try {
-        return this.apiSerive.callAPI("get", { }, `admin/verifyUser?code=${code}`)
+        console.log('code', code)
+        return this.apiSerive.callAPI("get",`code=${code}`, `admin/verifyUser`)
           .subscribe((data: any) => {
+            console.log('data in api hit', data)
             if (data.success === true) {
               data.data = data.data;
               this.saveToken(JSON.stringify(data.token));

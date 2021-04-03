@@ -19,11 +19,16 @@ export class SetPasswordComponent implements OnInit {
     private activatedRoute:ActivatedRoute
   ) {   }
 
-  verify(){
-    this.activatedRoute.queryParams.subscribe(async(params:any)=>{
-      console.log('params', params)
-      let data:any = await this.authService.verify(params)
-      this.alert.apiResponseAlert(data.error,'error')
+  async verify(){
+    await this.activatedRoute.queryParams.subscribe(async(params:any)=>{
+      let data:any = await this.authService.verify(params.code)
+      if (data.success) {
+        this.alert.apiResponseAlert(data.message,'success')
+        this.verifyedOrNot=true
+
+      } else {
+        this.alert.apiResponseAlert(data.error,'error')
+      }
     })
   }
   ngOnInit(): void {

@@ -24,6 +24,7 @@ export class ApiServiceService {
       });
     } else if (method.toLowerCase() === "get") {
       return Observable.create((observer :any) => {
+        console.log('apiData', apiData)
         this.http
           .get(this.baseUrl + APIEndPoint + "?" + apiData)
           .subscribe((data: any) => {
